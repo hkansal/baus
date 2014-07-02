@@ -1,13 +1,19 @@
-HelloWorld
+
+                        ___           ___           ___     
+         _____         /\  \         /\  \         /\__\    
+        /::\  \       /::\  \        \:\  \       /:/ _/_   
+       /:/\:\  \     /:/\:\  \        \:\  \     /:/ /\  \  
+      /:/ /::\__\   /:/ /::\  \   ___  \:\  \   /:/ /::\  \ 
+     /:/_/:/\:|__| /:/_/:/\:\__\ /\  \  \:\__\ /:/_/:/\:\__\
+     \:\/:/ /:/  / \:\/:/  \/__/ \:\  \ /:/  / \:\/:/ /:/  /
+      \::/_/:/  /   \::/__/       \:\  /:/  /   \::/ /:/  / 
+       \:\/:/  /     \:\  \        \:\/:/  /     \/_/:/  /  
+        \::/  /       \:\__\        \::/  /        /:/  /   
+         \/__/         \/__/         \/__/         \/__/    
+                                                        
+
 =========================
 
 ## Overview
 
-
-## License
-
-AppTemplate is released under the MIT license.  See the file [LICENSE](./LICENSE) for the full text.
-
-##Documentation for SDK
-
-You can find the documentation on our help [site.](https://help.rallydev.com/apps/2.0rc3/doc/)
+A customized Business As Usual Scrum board for Rally.
