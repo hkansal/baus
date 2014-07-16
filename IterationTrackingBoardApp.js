@@ -105,8 +105,8 @@
         },
 
         _addStatsBanner: function() {
-           this.remove('statsBanner');
-           this.add({
+            this.remove('statsBanner');
+            this.add({
                 xtype: 'statsbanner',
                 itemId: 'statsBanner',
                 context: this.getContext(),
@@ -139,15 +139,78 @@
                     storeConfig: {
                         useShallowFetch: true
                     },
-                    columnConfig: {
-                        xtype: 'iterationtrackingboardcolumn',
-                        additionalFetchFields: ['PortfolioItem'],
-                        enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
-                        plugins: [{
-                            ptype: 'rallycolumnpolicy',
-                            app: this
-                        }]
-                    },
+                    columns: [
+                        {
+                            xtype: 'iterationtrackingboardcolumn',
+                            columnHeaderConfig: {headerTpl: 'Defined'},
+                            enableRanking: true,
+                            value: 'Defined',
+                            enableWipLimit: true,
+                            wipLimit: -1,
+                            additionalFetchFields: ['PortfolioItem'],
+                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            plugins: [{
+                                ptype: 'rallycolumnpolicy',
+                                app: this
+                            }]
+                        },
+                        {
+                            xtype: 'iterationtrackingboardcolumn',
+                            columnHeaderConfig: {headerTpl: 'In-Progress'},
+                            enableRanking: true,
+                            value: 'In-Progress',
+                            enableWipLimit: true,
+                            wipLimit: 10,
+                            additionalFetchFields: ['PortfolioItem'],
+                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            plugins: [{
+                                ptype: 'rallycolumnpolicy',
+                                app: this
+                            }]
+                        },
+                        {
+                            xtype: 'iterationtrackingboardcolumn',
+                            columnHeaderConfig: {headerTpl: 'Completed'},
+                            enableRanking: true,
+                            value: 'Completed',
+                            enableWipLimit: true,
+                            wipLimit: 15,
+                            additionalFetchFields: ['PortfolioItem'],
+                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            plugins: [{
+                                ptype: 'rallycolumnpolicy',
+                                app: this
+                            }]
+                        },
+                        {
+                            xtype: 'iterationtrackingboardcolumn',
+                            columnHeaderConfig: {headerTpl: 'Accepted'},
+                            enableRanking: true,
+                            value: 'Accepted',
+                            enableWipLimit: true,
+                            wipLimit: 15,
+                            additionalFetchFields: ['PortfolioItem'],
+                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            plugins: [{
+                                ptype: 'rallycolumnpolicy',
+                                app: this
+                            }]
+                        },
+                        {
+                            xtype: 'iterationtrackingboardcolumn',
+                            columnHeaderConfig: {headerTpl: 'Tested'},
+                            enableRanking: true,
+                            value: 'Tested',
+                            enableWipLimit: true,
+                            wipLimit: 15,
+                            additionalFetchFields: ['PortfolioItem'],
+                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            plugins: [{
+                                ptype: 'rallycolumnpolicy',
+                                app: this
+                            }]
+                        }
+                    ],
                     cardConfig: {
                         showAge: this.getSetting('showCardAge') ? this.getSetting('cardAgeThreshold') : -1
                     },
