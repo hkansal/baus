@@ -80,12 +80,16 @@
             var fields = this.callParent(arguments);
 
             fields.push({
-                type: 'cardage',
-                config: {
-                    margin: '0 0 0 80',
-                    width: 300
+                    type: 'cardage',
+                    config: {
+                        margin: '0 0 0 80',
+                        width: 300
+                    }
+                },
+                {
+                    type: 'query'
                 }
-            });
+            );
 
             return fields;
         },
@@ -131,13 +135,14 @@
                 plugins: this._getGridBoardPlugins(),
                 modelNames: this.modelNames,
                 cardBoardConfig: {
-                    serverSideFiltering: context.isFeatureEnabled('BETA_TRACKING_EXPERIENCE'),
+                    serverSideFiltering: true,
                     plugins: [
                         {ptype: 'rallycardboardprinting', pluginId: 'print'},
                         {ptype: 'rallyfixedheadercardboard'}
                     ],
                     storeConfig: {
-                        useShallowFetch: true
+//                        useShallowFetch: true
+                        filters: this.getSetting('query') ? [Rally.data.QueryFilter.fromQueryString(this.getSetting('query'))] : []
                     },
                     columns: [
                         {
@@ -148,7 +153,7 @@
                             enableWipLimit: true,
                             wipLimit: -1,
                             additionalFetchFields: ['PortfolioItem'],
-                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            enableInfiniteScroll: true,
                             plugins: [{
                                 ptype: 'rallycolumnpolicy',
                                 app: this
@@ -160,9 +165,9 @@
                             enableRanking: true,
                             value: 'In-Progress',
                             enableWipLimit: true,
-                            wipLimit: 10,
+                            wipLimit: 20,
                             additionalFetchFields: ['PortfolioItem'],
-                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            enableInfiniteScroll: true,
                             plugins: [{
                                 ptype: 'rallycolumnpolicy',
                                 app: this
@@ -176,7 +181,7 @@
                             enableWipLimit: true,
                             wipLimit: 15,
                             additionalFetchFields: ['PortfolioItem'],
-                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            enableInfiniteScroll: true,
                             plugins: [{
                                 ptype: 'rallycolumnpolicy',
                                 app: this
@@ -190,7 +195,7 @@
                             enableWipLimit: true,
                             wipLimit: 15,
                             additionalFetchFields: ['PortfolioItem'],
-                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            enableInfiniteScroll: true,
                             plugins: [{
                                 ptype: 'rallycolumnpolicy',
                                 app: this
@@ -204,7 +209,7 @@
                             enableWipLimit: true,
                             wipLimit: 15,
                             additionalFetchFields: ['PortfolioItem'],
-                            enableInfiniteScroll: this.getContext().isFeatureEnabled('S64257_ENABLE_INFINITE_SCROLL_ALL_BOARDS'),
+                            enableInfiniteScroll: true,
                             plugins: [{
                                 ptype: 'rallycolumnpolicy',
                                 app: this
